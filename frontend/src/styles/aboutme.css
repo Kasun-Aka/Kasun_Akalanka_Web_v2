@@ -1,0 +1,72 @@
+.heading h2,
+.heading span {
+    font-size: 5rem;
+}
+
+.aboutme-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 80vh;
+}
+
+.aboutme-imgbox {
+    display: flex;
+    position: static;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.aboutme-imgbox img {
+    width: auto;
+    max-height: 80vh;
+}
+
+.aboutme-container .aboutme-text {
+    display: flex;
+    position: static;
+    width: 60%;
+    height: auto;
+
+}
+
+.aboutme-text p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+/* BREAKPOINTS */
+@media (max-width: 991px) {
+    .aboutme {
+        padding-bottom: 7rem;
+    }
+}
+
+@media (max-width: 860px) {
+
+    .heading h2,
+    span {
+        font-size: 2rem;
+    }
+
+    .aboutme-container {
+        flex-direction: column;
+        max-width: 100%;
+        max-height: 90%;
+    }
+
+    .aboutme-imgbox img {
+        width: 100%;
+        height: auto;
+    }
+
+    .aboutme-text {
+        margin-top: 4rem;
+    }
+
+    .aboutme h2 {
+        margin-bottom: 3rem;
+    }
+}
