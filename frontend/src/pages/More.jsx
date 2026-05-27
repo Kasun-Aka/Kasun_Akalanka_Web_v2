@@ -31,17 +31,17 @@ const More = () => {
                 </div>
 
                 <div className="other-container">
-                    <div className="other-box"></div>  
+                    <div className="other-box" data-aos="fade-up" data-aos-delay="100"></div>  
 
-                    <div className="other-box">
+                    <div className="other-box" data-aos="fade-up" data-aos-delay="200">
                         <img src="/assets/other_2.jpg" alt="" />
                     </div>
 
-                    <div className="other-box"></div> 
-                    <div className="other-box"></div> 
+                    <div className="other-box" data-aos="fade-up" data-aos-delay="300"></div> 
+                    <div className="other-box" data-aos="fade-up" data-aos-delay="400"></div> 
 
                     {showBday && (
-                        <div className="other-box" id="bday-secret">
+                        <div className="other-box" id="bday-secret" data-aos="zoom-in" data-aos-delay="500">
                             <img src="/assets/other_bday.webp" alt="" style={{ opacity: "100%" }} />
                             <div className="other-layer">
                                 <h4>Happy Birthday</h4>

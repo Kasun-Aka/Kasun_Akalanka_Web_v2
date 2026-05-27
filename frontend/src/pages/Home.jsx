@@ -177,9 +177,9 @@ const Home = () => {
                     <div data-aos="fade-right" data-aos-delay="750">
                         <h3>And I'm a &nbsp;<span className="multiple-text1"></span></h3>
                         <p>
-                            Welcome to my personal website... take a look around.
+                            Welcome to my personal portfolio — take a look around.
                             <br />
-                            <br />Get to know me, download my projects, follow me on social media,
+                            <br />Get to know me, explore my projects, connect with me on social media,
                             <br />and feel free to leave your feedback.
                         </p>
                         <div className="social-media">
@@ -218,10 +218,11 @@ const Home = () => {
                     </div>
                     <div data-aos="fade-down-left" data-aos-delay="500">
                         <h3>Software Engineering Undergraduate</h3>
-                        <p>I'm currently pursuing a BSc (Hons) in Information Technology at SLIIT,
-                            <br />With a strong foundation in Java programming and a keen interest in web development.
-                            <br />I'm passionate about gaining new knowledge and embracing challenges.
-                            <br />
+                        <p>
+                            I'm currently pursuing a BSc (Hons) in Information Technology at SLIIT,
+                            <br />specializing in Software Engineering with hands-on experience in
+                            <br />full-stack web and mobile development. I'm passionate about building
+                            <br />real-world solutions and continuously growing as a software engineer.
                         </p>
                         <a href="/aboutme" className="btn">Read More...</a>
                     </div>
@@ -233,33 +234,71 @@ const Home = () => {
                                 <h4>Growing steadily, one line of code at a time..</h4>
                             </div>
 
-                            <div className="java">
-                                <i className='bxl bx-java'></i>
-                                <span>Java & Object-Oriented Programming</span>
+                            <div className="skills-row">
+                                <div className="java">
+                                    <i className='bxl bx-java'></i>
+                                    <span>Java & Object-Oriented Programming & Data Structures</span>
+                                </div>
+                                <div className="backend">
+                                    <i className='bxl bx-spring-boot'></i>
+                                    <i className='bxl bx-nodejs'></i>
+                                    <i className='bxl bx-nest-js'></i>
+                                    <span>Backend Development (Spring Boot, Node.js, NestJS)</span>
+                                </div>
+                                <div className="frontend">
+                                    <i className='bxl bx-javascript'></i>
+                                    <i className='bxl bx-typescript'></i>
+                                    <i className='bxl bx-css3'></i>
+                                    <i className='bxl bx-html5'></i>
+                                    <span>Frontend Development (HTML, CSS, JavaScript, TypeScript)</span>
+                                </div>
+                                <div className="react">
+                                    <i className='bxl bx-react'></i>
+                                    <i className="bxl bx-next-js"></i>
+                                    <i className="bxl bx-vite-js"></i>
+                                    <i className="bxl bx-tailwind-css"></i>
+                                    <span>React & Next.js with Tailwind CSS</span>
+                                </div>
                             </div>
 
-                            <div className="spring">
-                                <i className='bxl bx-spring-boot'></i>
-                                <i className='bxl bx-nodejs'></i>
-                                <i className='bxl bx-nest-js'></i>
-                                <span>Backend Development (Spring Boot, Node.js, NestJS)</span>
+                            <div className="skills-row">
+                                <div className="reactnative">
+                                    <i className="bxl bx-react"></i>
+                                    <i className="bxl bx-expo"></i>
+                                    <span>React Native with Expo</span>
+                                </div>
+                                <div className="databases">
+                                    <i className='bxl bx-my-sql'></i>
+                                    <i className='bxl bx-mongodb'></i>
+                                    <span>Databases (MS SQL Server, MySQL, MongoDB, Supabase)</span>
+                                </div>
+                                <div className="devops">
+                                    <i className='bxl bx-docker'></i>
+                                    <i className='bxl bx-git'></i>
+                                    <i className="bxf bx-cloud"></i>
+                                    <span>DevOps & Cloud (Docker, Git, Netlify, Railway, Vercel)</span>
+                                </div>
+                                <div className="python">
+                                    <i className='bxl bx-python'></i>
+                                    <span>Python for Scripting & Machine Learning Fundamentals</span>
+                                </div>
                             </div>
 
-                            <div className="frontend">
-                                <i className='bxl bx-javascript'></i>
-                                <i className='bxl bx-css3'></i>
-                                <i className='bxl bx-html5'></i>
-                                <span>Frontend Development (HTML, CSS, JavaScript)</span>
-                            </div>
-
-                            <div className="python">
-                                <i className='bxl bx-python'></i>
-                                <span>Python for Scripting & Machine Learning Fundamentals</span>
-                            </div>
-
-                            <div className="scratch">
-                                <i className='bx bx-cat'></i>
-                                <span>Game Logic & Problem Solving (2D Projects)</span>
+                            <div className="skills-row">
+                                <div className="Clang">
+                                    <i className='bxl bx-c'></i>
+                                    <span>C Programming Fundamentals</span>
+                                </div>
+                                <div className="tools">
+                                    <i className='bxl bx-github'></i>
+                                    <i className='bxl bx-firebase'></i>
+                                    <i className='bxl bx-tux'></i>
+                                    <span>Tools (GitHub, Postman, Firebase, Linux)</span>
+                                </div>
+                                <div className="scratch">
+                                    <i className='bx bx-cat'></i>
+                                    <span>Game Logic & Problem Solving (2D Projects)</span>
+                                </div>
                             </div>
                         </div>
                     </div>

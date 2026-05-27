@@ -38,10 +38,10 @@ const MyProjects = () => {
             </video>
 
             <section className="projects" id="projects">
-                <h2 className="heading">My <span>Projects</span></h2>
+                <h2 className="heading" data-aos="fade-down">My <span>Projects</span></h2>
                 <div className="projects-container">
-                    {projectsData.map((project) => (
-                        <div className="projects-box" key={project.id}>
+                    {projectsData.map((project, index) => (
+                        <div className="projects-box" key={project.id} data-aos="fade-up" data-aos-delay={index * 100}>
                             <img src={project.images[0]} alt={project.title} />
                             <div className="projects-layer">
                                 <i className={project.icon}></i>
