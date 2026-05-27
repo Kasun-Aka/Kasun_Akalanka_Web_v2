@@ -17,6 +17,14 @@ import './styles/style.css';
 const App = () => {
     const location = useLocation();
 
+    // Wake up the backend server on initial load
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_BASE_URL}/api/health`)
+            .then(res => res.json())
+            .then(data => console.log("Backend status:", data.status))
+            .catch(err => console.error("Failed to wake up backend:", err));
+    }, []);
+
     useEffect(() => {
         AOS.init({
             offset: 80,

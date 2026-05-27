@@ -72,7 +72,7 @@
     justify-content: center;
     width: 100%;
     padding: 12px 20px;
-    font-size: 1.8rem;
+    font-size: 2rem;
     gap: 10px;
     background: var(--main-color);
     color: #fff;
@@ -84,7 +84,9 @@
 }
 
 .google-btn i {
-    font-size: 2.4rem;
+    font-size: 2rem;
+    position: relative;
+    top: 3px;
 }
 
 .google-btn:hover:not(:disabled) {

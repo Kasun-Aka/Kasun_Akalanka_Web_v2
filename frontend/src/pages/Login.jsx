@@ -58,7 +58,7 @@ const Login = () => {
       <div className="login-container">
         <div className="login-box" data-aos="zoom-in">
           <Link to="/" className="back-link">
-            <i className='bx bx-left-arrow-alt'></i> Back to Home
+            <i className="bx bx-arrow-in-left-square-half" /> Back to Home
           </Link>
 
           <img src="/assets/ghostdevKA.webp" alt="Logo" className="login-logo" />
@@ -73,7 +73,7 @@ const Login = () => {
             onClick={handleGoogleSignIn}
             disabled={loading}
           >
-            <i className='bx bxl-google'></i>
+            <i className="bxl bx-google"></i> &nbsp; &nbsp;
             {loading ? "Signing in..." : "Sign in with Google"}
           </button>
         </div>
