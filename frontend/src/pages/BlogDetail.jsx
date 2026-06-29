@@ -25,7 +25,7 @@ const BlogDetail = () => {
             <button className="btn" onClick={() => navigate(-1)} style={{ marginBottom: '30px' }}>
                 <i className='bx bx-arrow-back'></i> Back
             </button>
-            <div style={{ background: 'var(--second-bg-color)', borderRadius: '20px', padding: '40px', boxShadow: '0 0 20px rgba(0,0,0,0.2)' }}>
+            <div style={{ background: 'var(--dark-transparent-bg)', borderRadius: '20px', padding: '40px', boxShadow: '0 0 20px rgba(0,0,0,0.2)' }}>
                 <h1 style={{ fontSize: '4rem', color: 'var(--main-color)', marginBottom: '15px' }}>{blog.title}</h1>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '30px' }}>
                     <img src={blog.profile_pic} alt={blog.author} style={{ width: '60px', height: '60px', borderRadius: '50%', objectFit: 'cover' }} />

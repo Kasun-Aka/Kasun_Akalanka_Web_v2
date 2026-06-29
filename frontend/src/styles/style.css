@@ -773,8 +773,8 @@ span {
     .navbar.mobile-nav.active {
         display: block;
         background-color: var(--header-bg);
-        backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
     .navbar.mobile-nav a {
