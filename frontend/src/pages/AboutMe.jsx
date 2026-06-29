@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Typed from 'typed.js';
+import { Link } from 'react-router-dom';
 import '../styles/aboutme.css';
 
 const AboutMe = () => {
@@ -50,7 +51,9 @@ const AboutMe = () => {
                                 specializing in Software Engineering. From building backend APIs and
                                 full-stack web apps to developing mobile applications and exploring
                                 machine learning, I thrive on challenges and never stop exploring. Outside
-                                of coursework, I'm also a member of the MS Club at SLIIT.
+                                of coursework, I'm also a member of the MS Club at SLIIT. I am actively
+                                contributing to the MS Club Development Team and collaborating within the
+                                official MS Club GitHub organization.
                             </p>
                             <p>
                                 Outside of tech, I'm a motorsport enthusiast — especially Formula 1 —
@@ -70,7 +73,7 @@ const AboutMe = () => {
                                 a few dreamers along the way.
                             </p>
 
-                            <a href="/#about" className="btn">Back</a>
+                            <Link to="/#about" className="btn">Back</Link>
                         </div>
                     </div>
                 </div>

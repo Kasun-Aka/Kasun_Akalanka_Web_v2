@@ -6,6 +6,7 @@ import '../../styles/admin.css';
 const AdminLayout = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,19 +27,36 @@ const AdminLayout = () => {
   if (loading) return <div className="admin-loading">Loading Admin Portal...</div>;
   if (!isAdmin) return null;
 
+  const getPageTitle = () => {
+    if (location.pathname.includes('/users')) return 'User Management';
+    if (location.pathname.includes('/messages')) return 'Messages';
+    return 'Dashboard';
+  };
+
   return (
     <div className="admin-container">
+      {/* Mobile hamburger */}
+      <button className="admin-hamburger" onClick={() => setSidebarOpen(!sidebarOpen)}>
+        <i className={sidebarOpen ? 'bx bx-x' : 'bx bx-menu'}></i>
+      </button>
+
+      {/* Overlay for mobile */}
+      {sidebarOpen && <div className="admin-overlay" onClick={() => setSidebarOpen(false)}></div>}
+
       {/* Sidebar */}
-      <div className="admin-sidebar">
+      <div className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="admin-brand">
           <img src="/assets/ghostdevKA.webp" alt="Logo" />
           <h2>Admin Portal</h2>
         </div>
         <nav className="admin-nav">
-          <Link to="/admin/users" className={location.pathname.includes('/users') ? 'active' : ''}>
+          <Link to="/admin" className={location.pathname === '/admin' ? 'active' : ''} onClick={() => setSidebarOpen(false)}>
+            <i className='bx bx-tachometer'></i> Dashboard
+          </Link>
+          <Link to="/admin/users" className={location.pathname.includes('/users') ? 'active' : ''} onClick={() => setSidebarOpen(false)}>
             <i className='bx bx-group'></i> Users
           </Link>
-          <Link to="/admin/messages" className={location.pathname.includes('/messages') ? 'active' : ''}>
+          <Link to="/admin/messages" className={location.pathname.includes('/messages') ? 'active' : ''} onClick={() => setSidebarOpen(false)}>
             <i className='bx bx-envelope'></i> Messages
           </Link>
         </nav>
@@ -52,13 +70,13 @@ const AdminLayout = () => {
       {/* Main Content Area */}
       <div className="admin-main">
         <header className="admin-header">
-          <h1>{location.pathname.includes('/users') ? 'User Management' : 'Messages'}</h1>
+          <h1>{getPageTitle()}</h1>
           <div className="admin-user-info">
             <span>Admin Mode</span>
           </div>
         </header>
         <div className="admin-content">
-          <Outlet /> {/* Renders the sub-pages like AdminUsers or AdminMessages */}
+          <Outlet />
         </div>
       </div>
     </div>
