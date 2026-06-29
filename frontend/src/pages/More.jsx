@@ -21,7 +21,7 @@ const More = () => {
                         .sort((a, b) => b.id - a.id)
                         .map((blog, index) => (
                             <Link to={`/blog/${blog.id}`} key={blog.id} style={{ textDecoration: 'none' }} className="blog-card" data-aos="fade-up" data-aos-delay={index * 100}>
-                                <div style={{ background: 'var(--second-bg-color)', borderRadius: '1.5rem', overflow: 'hidden', transition: 'transform 0.3s', cursor: 'pointer', boxShadow: '0 0 10px rgba(0,0,0,0.1)', height: '100%' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+                                <div style={{ background: 'var(--dark-transparent-bg)', borderRadius: '1.5rem', overflow: 'hidden', transition: 'transform 0.3s', cursor: 'pointer', boxShadow: '0 0 10px rgba(0,0,0,0.1)', height: '100%' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.02)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
                                     {blog.image && <img src={blog.image} alt={blog.title} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />}
                                     <div style={{ padding: '2rem' }}>
                                         <h3 style={{ fontSize: '2rem', color: 'var(--main-color)', marginBottom: '1rem' }}>{blog.title}</h3>

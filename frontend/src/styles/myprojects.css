@@ -19,6 +19,7 @@
     --btn-txt: rgba(50, 57, 70);
     --header-bg: rgba(0, 0, 0, 0.4);
     --header-tx: #fff;
+    --dark-transparent-bg: rgba(0, 0, 0, 0.6);
 }
 
 .light-theme {
@@ -30,6 +31,7 @@
     --btn-txt: rgba(255, 255, 255);
     --header-bg: rgba(0, 0, 0, 0.7);
     --header-tx: #fff;
+    --dark-transparent-bg: rgba(230, 230, 230, 0.85);
 }
 
 html {
@@ -284,7 +286,7 @@ span {
 }
 
 .project-modal-content {
-    background: var(--second-bg-color);
+    background: var(--dark-transparent-bg);
     padding: 3rem;
     border-radius: 2rem;
     width: 90%;

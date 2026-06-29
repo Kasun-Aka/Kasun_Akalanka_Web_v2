@@ -14,7 +14,7 @@ const Header = () => {
             if (currentUser) {
                 setUserRole(localStorage.getItem('userRole'));
                 const fullName = localStorage.getItem('userName') || currentUser.displayName || "";
-                setUserName(fullName.split(' ')[0]);
+                setUserName(fullName.split(' ')[1]);
             } else {
                 setUserRole(null);
                 setUserName(null);
@@ -30,6 +30,7 @@ const Header = () => {
             await signOut(auth);
             localStorage.removeItem('userRole');
             localStorage.removeItem('userName');
+            sessionStorage.setItem('skipLoadingScreen', 'true');
             window.location.reload();
         } catch (error) {
             console.error("Error logging out", error);
@@ -153,8 +154,8 @@ const Header = () => {
                     ></i>
 
                     {user ? (
-                        <div className="user-menu" style={{ display: 'flex', alignItems: 'center', borderRadius: '4rem', backgroundColor: 'rgba(77, 181, 250, 0.43)', padding: '0 0 0 2rem', marginLeft: '2.5rem', gap: '1rem' }}>
-                            <span style={{ color: 'var(--header-tx)', fontSize: '1.5rem', fontWeight: 'bold' }}>{userName}</span>
+                        <div className="user-menu" style={{ display: 'flex', alignItems: 'center', borderRadius: '4rem', backgroundColor: userRole === 'admin' ? 'rgba(128, 0, 0, 0.85)' : 'rgba(77, 181, 250, 0.43)', padding: '0 0 0 2rem', marginLeft: '2.5rem', gap: '1rem' }}>
+                            <span style={{ color: userRole === 'admin' ? '#FFD700' : 'var(--header-tx)', fontSize: '1.5rem', fontWeight: 'bold' }}>{userName}</span>
                             <button onClick={handleLogout} className="btn" style={{ padding: '0.8rem 1.5rem', marginLeft: '0' }}>Sign Out</button>
                         </div>
                     ) : (

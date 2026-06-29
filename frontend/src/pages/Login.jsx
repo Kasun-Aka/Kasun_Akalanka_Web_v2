@@ -39,6 +39,7 @@ const Login = () => {
 
       // 4. Navigate back to home
       navigate("/");
+      sessionStorage.setItem('skipLoadingScreen', 'true');
       window.location.reload(); // Quick way to update header state
     } catch (err) {
       console.error(err);

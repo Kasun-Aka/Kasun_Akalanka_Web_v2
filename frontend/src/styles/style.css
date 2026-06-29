@@ -21,7 +21,7 @@
     --header-bg: rgba(0, 0, 0, 0.4);
     --header-tx: #fff;
     --skills-bg: transparent;
-    --contact-input-bg: rgba(0, 0, 0, 0.6);
+    --dark-transparent-bg: rgba(0, 0, 0, 0.6);
 }
 
 .light-theme {
@@ -34,7 +34,7 @@
     --header-bg: rgba(255, 255, 255, 0.85);
     --header-tx: #0f172a;
     --skills-bg: #e2e8f0;
-    --contact-input-bg: rgba(230, 230, 230, 0.85);
+    --dark-transparent-bg: rgba(230, 230, 230, 0.85);
 }
 
 html {
@@ -470,7 +470,7 @@ span {
 }
 
 .skill-list-item {
-    background: var(--contact-input-bg);
+    background: var(--dark-transparent-bg);
     border-radius: 1rem;
     padding: 1.5rem 2.5rem;
     display: flex;
@@ -599,7 +599,7 @@ span {
     padding: 1.5rem;
     font-size: 1.6rem;
     color: var(--text-color);
-    background: var(--contact-input-bg);
+    background: var(--dark-transparent-bg);
     border-radius: .8rem;
     margin: .7rem 0;
 }

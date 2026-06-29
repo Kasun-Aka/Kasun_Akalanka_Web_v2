@@ -19,7 +19,14 @@ import './styles/style.css';
 
 const App = () => {
     const location = useLocation();
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(() => {
+        const skipLoader = sessionStorage.getItem('skipLoadingScreen');
+        if (skipLoader === 'true') {
+            sessionStorage.removeItem('skipLoadingScreen');
+            return false;
+        }
+        return true;
+    });
 
     // Wake up the backend server on initial load
     useEffect(() => {

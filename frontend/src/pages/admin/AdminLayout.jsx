@@ -10,22 +10,22 @@ const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      const role = localStorage.getItem('userRole');
-      if (user && role === 'admin') {
-        setIsAdmin(true);
-      } else {
-        navigate('/');
-      }
-      setLoading(false);
-    });
+//   useEffect(() => {
+//     const unsubscribe = auth.onAuthStateChanged((user) => {
+//       const role = localStorage.getItem('userRole');
+//       if (user && role === 'admin') {
+//         setIsAdmin(true);
+//       } else {
+//         navigate('/');
+//       }
+//       setLoading(false);
+//     });
 
-    return () => unsubscribe();
-  }, [navigate]);
+//     return () => unsubscribe();
+//   }, [navigate]);
 
-  if (loading) return <div className="admin-loading">Loading Admin Portal...</div>;
-  if (!isAdmin) return null;
+//   if (loading) return <div className="admin-loading">Loading Admin Portal...</div>;
+//   if (!isAdmin) return null;
 
   const getPageTitle = () => {
     if (location.pathname.includes('/users')) return 'User Management';
