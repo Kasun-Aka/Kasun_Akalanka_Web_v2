@@ -57,8 +57,10 @@ body {
 
 .heading {
     text-align: center;
+    font-family: "Gugi", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
-    font-size: 4.5rem;
 }
 
 span {
@@ -196,37 +198,6 @@ span {
     color: var(--main-color);
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: var(--second-bg-color);
-}
-
-.footer-text p {
-    font-size: 1.6rem;
-}
-
-.footer-iconTop a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .8rem;
-    background: var(--main-color);
-    border-radius: .8rem;
-    transition: .5s ease;
-}
-
-.footer-iconTop a:hover {
-    box-shadow: 0 0 1rem var(--main-color);
-}
-
-.footer-iconTop a i {
-    font-size: 2.4rem;
-    color: var(--second-bg-color);
-}
 
 
 /*------- custom CSS animation ------------------ */
@@ -264,45 +235,12 @@ span {
     .projects {
         padding-bottom: 7rem;
     }
-
-    .footer {
-        padding: 2rem 3%;
-    }
 }
 
 @media (max-width: 860px) {
     #menu-icon {
         display: block;
         font-size: 2rem;
-    }
-
-    .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-        display: none;
-    }
-
-    .navbar.active {
-        display: block;
-
-    }
-
-    .navbar a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    .navhead {
-        display: flex;
-        align-items: center;
-        margin-right: 1.5rem;
     }
 
     .projects h2 {
@@ -329,16 +267,6 @@ span {
     }
 }
 
-@media (max-width: 365px) {
-    .footer {
-        flex-direction: column-reverse;
-    }
-
-    .footer p {
-        text-align: center;
-        margin-top: 2rem;
-    }
-}
 
 /* Modal / Overlay Styles */
 .project-modal-overlay {

@@ -21,18 +21,20 @@
     --header-bg: rgba(0, 0, 0, 0.4);
     --header-tx: #fff;
     --skills-bg: transparent;
+    --contact-input-bg: rgba(0, 0, 0, 0.6);
 }
 
 .light-theme {
     --bg-color: #f1f5f9;
     --second-bg-color: #ffffff;
-    --text-color: #0f172a;
+    --text-color: #ffffff;
     --main-color: #ea580c;
     --main-color-darken: rgba(234, 88, 12, 0.5);
     --btn-txt: #ffffff;
     --header-bg: rgba(255, 255, 255, 0.85);
     --header-tx: #0f172a;
     --skills-bg: #e2e8f0;
+    --contact-input-bg: rgba(230, 230, 230, 0.85);
 }
 
 html {
@@ -43,6 +45,7 @@ html {
 body {
     background: var(--bg-color);
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 #bg-video {
@@ -71,6 +74,8 @@ section {
     width: 100vw;
     padding: 1.5rem 4%;
     background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -109,13 +114,26 @@ section {
 .navbar a {
     font-size: 1.7rem;
     color: var(--header-tx);
-    margin-left: 3rem;
-    transition: .3s;
+    margin-left: 2rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 3rem;
+    transition: all .3s ease;
 }
 
-.navbar a:hover,
-.navbar a.active {
+.navbar a:hover {
     color: var(--main-color);
+}
+
+.navbar a.active {
+    color: #fff;
+    background: rgba(255, 128, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(255, 128, 0, 0.4);
+}
+
+.navbar.mobile-nav {
+    display: none;
 }
 
 .navhead .btn {
@@ -125,7 +143,7 @@ section {
     border-radius: 4rem;
     font-size: 1.5rem;
     margin-left: 2.5rem;
-    color: var(--header-tx);
+    color: var(--btn-txt);
     box-shadow: none;
     letter-spacing: .1rem;
     font-weight: 600;
@@ -135,7 +153,7 @@ section {
 .navhead .btn:hover {
     box-shadow: none;
     transform: scale(1.05);
-    color: var(--header-tx);
+    color: var(--btn-txt);
 }
 
 
@@ -163,6 +181,7 @@ section {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .home-img img {
@@ -228,9 +247,9 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4rem;
     z-index: 2;
     /* Ensure it stays above the rain effect */
+    max-width: 100%;
 }
 
 .matrix-text {
@@ -424,11 +443,6 @@ span {
     font-size: 2.6rem;
 }
 
-.about-content .myskills {
-    font-family: "Gugi", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
 
 .about-content h4 {
     font-size: 2rem;
@@ -441,172 +455,114 @@ span {
     margin: 2rem 0 3rem;
 }
 
-.about-content .skills {
+
+
+/* Skills Section */
+.skills-section {
+    padding: 10rem 9% 2rem;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 0 auto;
+}
+
+.skill-list-item {
+    background: var(--contact-input-bg);
+    border-radius: 1rem;
+    padding: 1.5rem 2.5rem;
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    transition: max-height 0.4s ease, box-shadow 0.3s ease, border 0.3s ease;
+    overflow: hidden;
+    max-height: 6.5rem;
+    /* Closed state */
+    border: 1px solid transparent;
+}
+
+.skill-list-item.hovered {
+    max-height: 15rem;
+    /* Opened state */
+    box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--main-color);
+}
+
+.skill-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skill-icons {
+    display: flex;
     gap: 1rem;
-    margin-top: 3rem;
-}
-
-.about-content .skills .skill-head {
-    display: inline-flex;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-/* New row wrapper */
-.about-content .skills .skills-row {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    align-items: center;
-}
-
-.about-content .skills h3 {
-    font-size: 2.6rem;
-
-}
-
-.about-content .skills h4 {
-    font-size: 2rem;
-    opacity: 50%;
-    margin-top: 0.5rem;
-}
-
-/* Shared styles for all skill items */
-.about-content .skills .java,
-.about-content .skills .scratch,
-.about-content .skills .Clang,
-.about-content .skills .python {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 4rem;
-    margin-top: 0.3rem;
-    padding: 0 1.5rem;
-    background: var(--skills-bg);
-    font-size: 2rem;
-    border: 2px solid var(--main-color);
-    border-radius: 50%;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.6s ease;
-    white-space: nowrap;
-    cursor: default;
-}
-
-.about-content .skills .databases,
-.about-content .skills .reactnative {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 6rem;
-    margin-top: 0.3rem;
-    padding: 0 1.5rem;
-    background: var(--skills-bg);
-    font-size: 2rem;
-    border: 2px solid var(--main-color);
-    border-radius: 30px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.6s ease;
-    white-space: nowrap;
-    cursor: default;
-}
-
-.about-content .skills .backend,
-.about-content .skills .frontend,
-.about-content .skills .devops,
-.about-content .skills .tools,
-.about-content .skills .react {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 4rem;
-    width: 9rem;
-    margin-top: 0.3rem;
-    padding: 0 1.5rem;
-    background: var(--skills-bg);
-    font-size: 2rem;
-    border: 2px solid var(--main-color);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.6s ease;
-    white-space: nowrap;
-    cursor: default;
-}
-
-.about-content .skills i {
+    font-size: 3rem;
     color: var(--main-color);
-    margin: 0;
-    transition: color 0.6s ease;
 }
 
-
-/* Hide span (text) by default */
-.about-content .skills span {
-    display: none;
-    margin-left: 1rem;
-    color: var(--btn-txt);
-    font-size: 1.4rem;
-    font-weight: 500;
-    white-space: nowrap;
-    transition: opacity 0.6s ease;
+.skill-title-container {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
-/* Hover: expand the pill and reveal text */
-.about-content .skills .java:hover,
-.about-content .skills .backend:hover,
-.about-content .skills .scratch:hover,
-.about-content .skills .Clang:hover,
-.about-content .skills .python:hover,
-.about-content .skills .frontend:hover,
-.about-content .skills .databases:hover,
-.about-content .skills .devops:hover,
-.about-content .skills .tools:hover,
-.about-content .skills .react:hover,
-.about-content .skills .reactnative:hover {
-    border-radius: 2rem;
-    height: 4rem;
-    width: auto;
-    background: var(--main-color);
-    color: var(--second-bg-color);
-    padding: 0 2rem;
-    box-shadow: 0 0 1rem var(--main-color);
+.skill-progress-container {
+    width: 100%;
 }
 
-.about-content .skills .java:hover i,
-.about-content .skills .backend:hover i,
-.about-content .skills .scratch:hover i,
-.about-content .skills .Clang:hover i,
-.about-content .skills .python:hover i,
-.about-content .skills .frontend:hover i,
-.about-content .skills .databases:hover i,
-.about-content .skills .devops:hover i,
-.about-content .skills .tools:hover i,
-.about-content .skills .react:hover i,
-.about-content .skills .reactnative:hover i {
-    color: var(--second-bg-color);
+.skill-progress-bg {
+    width: 100%;
+    height: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
 
-/* Hover: reveal span text */
-.about-content .skills .java:hover span,
-.about-content .skills .backend:hover span,
-.about-content .skills .scratch:hover span,
-.about-content .skills .Clang:hover span,
-.about-content .skills .python:hover span,
-.about-content .skills .frontend:hover span,
-.about-content .skills .databases:hover span,
-.about-content .skills .devops:hover span,
-.about-content .skills .tools:hover span,
-.about-content .skills .react:hover span,
-.about-content .skills .reactnative:hover span {
-    display: inline;
-    opacity: 1;
+.skill-progress-fill {
+    height: 80%;
+    background: #3498db;
+    border-radius: 0.5rem;
+    transition: width 0.1s linear;
+    /* Smooth fill */
+}
+
+.skill-percent-text {
+    color: #3498db;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .skills-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .skill-list-item {
+        padding: 1.5rem 1.5rem;
+        max-height: 6rem;
+    }
+
+    .skill-list-item.hovered {
+        max-height: 12rem;
+    }
+
+    .skill-icons {
+        font-size: 2rem;
+        gap: 5px;
+    }
+
+    .skill-title-container {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
 }
 
 
@@ -643,7 +599,7 @@ span {
     padding: 1.5rem;
     font-size: 1.6rem;
     color: var(--text-color);
-    background: var(--second-bg-color);
+    background: var(--contact-input-bg);
     border-radius: .8rem;
     margin: .7rem 0;
 }
@@ -668,7 +624,9 @@ span {
     flex-wrap: wrap;
     padding: 2rem 9%;
     background: var(--header-bg);
-    color: var(--header-tx)
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--header-tx);
 }
 
 .footer-text p {
@@ -691,7 +649,7 @@ span {
 
 .footer-iconTop a i {
     font-size: 2.4rem;
-    color: var(--second-bg-color);
+    color: var(--btn-txt);
 }
 
 
@@ -709,6 +667,60 @@ span {
 
     .header {
         padding: 1.5rem 2%;
+        font-size: 1.7rem;
+    }
+
+    .header img {
+        margin-left: 0;
+    }
+
+    .navbar a {
+        font-size: 1.7rem;
+        margin-left: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .navhead .btn {
+        padding: 0.8rem 1.8rem;
+        margin-left: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    #theme-toggle {
+        margin-left: 1.5rem;
+    }
+
+    .home {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .home-content h1 {
+        font-size: 4.2rem;
+    }
+
+    .matrix-text {
+        font-size: 4.2rem;
+    }
+
+    .glitch-layer {
+        font-size: 4.2rem;
+    }
+
+    .home-content h2 {
+        font-size: 3.2rem;
+    }
+
+    .home-content h2 .ghostdevka {
+        font-size: 3.2rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.2rem;
+    }
+
+    .home-content h3 .multiple-text1 {
+        font-size: 2.3rem;
     }
 
     section {
@@ -739,27 +751,36 @@ span {
         font-size: 2rem;
     }
 
-    .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 3%;
-        background: var(--bg-color);
-        border-top: .1rem solid rgba(0, 0, 0, .2);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    .navbar.desktop-nav {
         display: none;
     }
 
-    .navbar.active {
-        display: block;
-
+    .navbar.mobile-nav {
+        position: fixed;
+        top: 6.5rem;
+        /* just below header */
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--header-bg);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+        text-align: center;
+        z-index: 99;
     }
 
-    .navbar a {
+    .navbar.mobile-nav.active {
+        display: block;
+        background-color: var(--header-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .navbar.mobile-nav a {
         display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 1.5rem auto;
     }
 
     .navhead {
@@ -768,21 +789,44 @@ span {
         margin-right: 1.5rem;
     }
 
+    .desktop-img {
+        display: none !important;
+    }
+
+    .mobile-img {
+        display: block !important;
+    }
+
     .home {
         flex-direction: column;
-        max-width: 100%;
     }
 
     .home-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .home-content h3 .multiple-text1 {
         font-size: 2rem;
     }
 
     .home-content h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
+    }
+
+    .matrix-text {
+        font-size: 3.5rem;
     }
 
     .glitch-layer {
-        font-size: 4rem;
+        font-size: 3.5rem;
+    }
+
+    .home-content h2 {
+        font-size: 2.8rem;
+    }
+
+    .home-content h2 .ghostdevka {
+        font-size: 2.8rem;
     }
 
     .home-img img {

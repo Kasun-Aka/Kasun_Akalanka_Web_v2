@@ -177,3 +177,98 @@
     font-size: 2rem;
     color: var(--main-color);
 }
+
+/* Dashboard specific */
+.admin-dashboard .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Hamburger button - hidden on desktop */
+.admin-hamburger {
+    display: none;
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 1001;
+    background: var(--main-color);
+    color: var(--btn-txt);
+    border: none;
+    border-radius: 0.8rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 2.4rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay - hidden on desktop */
+.admin-overlay {
+    display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .admin-hamburger {
+        display: flex;
+    }
+
+    .admin-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .admin-sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 250px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .admin-sidebar.open {
+        left: 0;
+    }
+
+    .admin-main {
+        width: 100%;
+    }
+
+    .admin-header {
+        padding: 2rem 2rem 2rem 6rem; /* space for hamburger */
+    }
+
+    .admin-header h1 {
+        font-size: 2rem;
+    }
+
+    .admin-content {
+        padding: 1.5rem;
+    }
+
+    .admin-dashboard .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-table {
+        font-size: 1.3rem;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 1rem;
+        white-space: nowrap;
+    }
+}

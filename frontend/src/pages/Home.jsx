@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
 import axios from 'axios';
 import { auth } from '../firebase';
+import { Link } from 'react-router-dom';
+import SkillItem from '../components/SkillItem';
 
 const Home = () => {
     const typed1Ref = useRef(null);
@@ -40,7 +42,7 @@ const Home = () => {
             loop: true
         });
 
-        const typed3 = new Typed('.multiple-text3', {
+        const typed4 = new Typed('.multiple-text4', {
             strings: ['Me', 'Kasun'],
             typeSpeed: 100,
             backSpeed: 100,
@@ -51,7 +53,7 @@ const Home = () => {
         return () => {
             typed1.destroy();
             typed2.destroy();
-            typed3.destroy();
+            typed4.destroy();
         };
     }, []);
 
@@ -206,7 +208,7 @@ const Home = () => {
 
             {/* about section design */}
             <section className="about" id="about">
-                <div className="about-img">
+                <div className="about-img desktop-img">
                     <div data-aos="fade-up-right" data-aos-delay="250">
                         <img src="/assets/about.webp" alt="" loading="lazy" />
                     </div>
@@ -224,91 +226,89 @@ const Home = () => {
                             <br />full-stack web and mobile development. I'm passionate about building
                             <br />real-world solutions and continuously growing as a software engineer.
                         </p>
-                        <a href="/aboutme" className="btn">Read More...</a>
+                        <Link to="/aboutme" className="btn">Read More...</Link>
                     </div>
 
-                    <div data-aos="fade-up-left" data-aos-delay="750">
-                        <div className="skills">
-                            <div className="skill-head">
-                                <h3 className="myskills">Skills & Experience&nbsp;&nbsp;&nbsp;</h3>
-                                <h4>Growing steadily, one line of code at a time..</h4>
-                            </div>
-
-                            <div className="skills-row">
-                                <div className="java">
-                                    <i className='bxl bx-java'></i>
-                                    <span>Java & Object-Oriented Programming & Data Structures</span>
-                                </div>
-                                <div className="backend">
-                                    <i className='bxl bx-spring-boot'></i>
-                                    <i className='bxl bx-nodejs'></i>
-                                    <i className='bxl bx-nest-js'></i>
-                                    <span>Backend Development (Spring Boot, Node.js, NestJS)</span>
-                                </div>
-                                <div className="frontend">
-                                    <i className='bxl bx-javascript'></i>
-                                    <i className='bxl bx-typescript'></i>
-                                    <i className='bxl bx-css3'></i>
-                                    <i className='bxl bx-html5'></i>
-                                    <span>Frontend Development (HTML, CSS, JavaScript, TypeScript)</span>
-                                </div>
-                                <div className="react">
-                                    <i className='bxl bx-react'></i>
-                                    <i className="bxl bx-next-js"></i>
-                                    <i className="bxl bx-vite-js"></i>
-                                    <i className="bxl bx-tailwind-css"></i>
-                                    <span>React & Next.js with Tailwind CSS</span>
-                                </div>
-                            </div>
-
-                            <div className="skills-row">
-                                <div className="reactnative">
-                                    <i className="bxl bx-react"></i>
-                                    <i className="bxl bx-expo"></i>
-                                    <span>React Native with Expo</span>
-                                </div>
-                                <div className="databases">
-                                    <i className='bxl bx-my-sql'></i>
-                                    <i className='bxl bx-mongodb'></i>
-                                    <span>Databases (MS SQL Server, MySQL, MongoDB, Supabase)</span>
-                                </div>
-                                <div className="devops">
-                                    <i className='bxl bx-docker'></i>
-                                    <i className='bxl bx-git'></i>
-                                    <i className="bxf bx-cloud"></i>
-                                    <span>DevOps & Cloud (Docker, Git, Netlify, Railway, Vercel)</span>
-                                </div>
-                                <div className="python">
-                                    <i className='bxl bx-python'></i>
-                                    <span>Python for Scripting & Machine Learning Fundamentals</span>
-                                </div>
-                            </div>
-
-                            <div className="skills-row">
-                                <div className="Clang">
-                                    <i className='bxl bx-c'></i>
-                                    <span>C Programming Fundamentals</span>
-                                </div>
-                                <div className="tools">
-                                    <i className='bxl bx-github'></i>
-                                    <i className='bxl bx-firebase'></i>
-                                    <i className='bxl bx-tux'></i>
-                                    <span>Tools (GitHub, Postman, Firebase, Linux)</span>
-                                </div>
-                                <div className="scratch">
-                                    <i className='bx bx-cat'></i>
-                                    <span>Game Logic & Problem Solving (2D Projects)</span>
-                                </div>
-                            </div>
+                    <div className="about-img mobile-img" style={{ display: 'none' }}>
+                        <div data-aos="zoom-in">
+                            <img src="/assets/about.webp" alt="" loading="lazy" style={{ width: '70vw', filter: 'drop-shadow(0 0 10px var(--main-color))', animation: 'dropPulse 2s infinite' }} />
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* New Skills Section */}
+            <section className="skills-section" id="skills">
+                <div data-aos="fade-down">
+                    <h2 className="heading">Skills & <span>Experience</span></h2>
+                    <p style={{ textAlign: 'center', fontSize: '1.6rem', margin: '2rem 0', opacity: 0.8 }}>
+                        Growing steadily, one line of code at a time..
+                    </p>
+                </div>
+
+                <div className="skills-list" data-aos="fade-up">
+                    <SkillItem
+                        icons={['bxl bx-java']}
+                        title="Java & OOP"
+                        percentage={70}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-spring-boot', 'bxl bx-nodejs', 'bxl bx-nest-js']}
+                        title="Backend (Node, Spring, Nest)"
+                        percentage={75}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-javascript', 'bxl bx-typescript', 'bxl bx-css3', 'bxl bx-html5']}
+                        title="Frontend (HTML/JS/TS/CSS)"
+                        percentage={80}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-react', 'bxl bx-next-js', 'bxl bx-vite-js', 'bxl bx-tailwind-css']}
+                        title="React & Next.js"
+                        percentage={75}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-react', 'bxl bx-expo']}
+                        title="React Native"
+                        percentage={65}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-my-sql', 'bxl bx-mongodb']}
+                        title="Databases (SQL/NoSQL)"
+                        percentage={70}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-docker', 'bxl bx-git', 'bxf bx-cloud']}
+                        title="DevOps & Cloud"
+                        percentage={60}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-python']}
+                        title="Python (ML Basics)"
+                        percentage={50}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-c']}
+                        title="C Programming"
+                        percentage={50}
+                    />
+                    <SkillItem
+                        icons={['bxl bx-github', 'bxl bx-firebase', 'bxl bx-tux']}
+                        title="Tools (GitHub, Firebase, Linux)"
+                        percentage={80}
+                    />
+                    <SkillItem
+                        icons={['bx bx-cat']}
+                        title="Problem Solving"
+                        percentage={85}
+                    />
                 </div>
             </section>
 
             {/* contact section design */}
             <section className="contact" id="contact">
                 <div data-aos="fade-down">
-                    <h2 className="heading">Contact <span className="multiple-text3"></span></h2>
+                    <h2 className="heading">Contact <span className="multiple-text4"></span></h2>
                 </div>
 
                 <form id="contactForm" onSubmit={handleContactSubmit}>

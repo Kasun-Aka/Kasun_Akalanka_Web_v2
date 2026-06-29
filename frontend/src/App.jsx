@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,12 +10,16 @@ import Login from './pages/Login';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminMessages from './pages/admin/AdminMessages';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import LoadingScreen from './components/LoadingScreen';
+import BlogDetail from './pages/BlogDetail';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './styles/style.css';
 
 const App = () => {
     const location = useLocation();
+    const [isLoading, setIsLoading] = useState(true);
 
     // Wake up the backend server on initial load
     useEffect(() => {
@@ -57,6 +61,10 @@ const App = () => {
     const isAdminRoute = location.pathname.startsWith('/admin');
     const hideHeaderFooter = isAuthRoute || isAdminRoute;
 
+    if (isLoading) {
+        return <LoadingScreen onComplete={() => setIsLoading(false)} />;
+    }
+
     return (
         <>
             {!hideHeaderFooter && <Header />}
@@ -65,10 +73,12 @@ const App = () => {
                 <Route path="/aboutme" element={<AboutMe />} />
                 <Route path="/myprojects" element={<MyProjects />} />
                 <Route path="/more" element={<More />} />
+                <Route path="/blog/:id" element={<BlogDetail />} />
                 <Route path="/login" element={<Login />} />
 
                 {/* Admin Routes */}
                 <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<AdminDashboard />} />
                     <Route path="users" element={<AdminUsers />} />
                     <Route path="messages" element={<AdminMessages />} />
                 </Route>
