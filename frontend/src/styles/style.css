@@ -74,8 +74,8 @@ section {
     width: 100vw;
     padding: 1.5rem 4%;
     background: var(--header-bg);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,8 +127,8 @@ section {
 .navbar a.active {
     color: #fff;
     background: rgba(255, 128, 0, 0.6);
-    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(255, 128, 0, 0.4);
 }
 
@@ -624,8 +624,8 @@ span {
     flex-wrap: wrap;
     padding: 2rem 9%;
     background: var(--header-bg);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     color: var(--header-tx);
 }
 
